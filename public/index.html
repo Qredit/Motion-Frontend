@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="generator" content="">
+    <title>Qredit Motion</title>
+
+    <!-- manifest meta -->
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/img/favicon180.png" sizes="180x180">
+    <link rel="icon" href="%PUBLIC_URL%/img/favicon32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="%PUBLIC_URL%/img/favicon16.png" sizes="16x16" type="image/png">
+
+    <!-- Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Custom styles for this template includes Bootstrap -->
+    <link href="%PUBLIC_URL%/css/style.css" rel="stylesheet" id="style">
+    <!-- <link href="%PUBLIC_URL%/css/bootstrap.min.css" rel="stylesheet" id="style"> -->
+    <!-- <link href="%PUBLIC_URL%/css/style2.css" rel="stylesheet" id="style"> -->
+    <!-- <link href="%PUBLIC_URL%/css/owl.carousel.min.css" rel="stylesheet" id="style"> -->
+    <!--  <link href="%PUBLIC_URL%/css/owl.theme.default.css" rel="stylesheet" id="style"> -->
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
+    <link href="/spash/iphone5_splash.png"
+        media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/iphone6_splash.png"
+        media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/iphoneplus_splash.png"
+        media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/iphonex_splash.png"
+        media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/iphonexr_splash.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/iphonexsmax_splash.png"
+        media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/ipad_splash.png"
+        media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/ipadpro1_splash.png"
+        media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/ipadpro3_splash.png"
+        media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+    <link href="/spash/ipadpro2_splash.png"
+        media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+        rel="apple-touch-startup-image" />
+
+</head>
+
+
+<body class="body-scroll d-flex flex-column h-100 menu-overlay">
+    <!-- screen loader -->
+    <div id="screenloader" class="container-fluid h-100 loader-display">
+        <div class="row h-100">
+            <div class="align-self-center col">
+                <div class="logo-loading">
+                    <div class="icon icon-100 mb-4 rounded-circle">
+                        <img src="img/favicon144.png" alt="" class="w-100">
+                    </div>
+                    <h4 class="text-default">Qredit Motion</h4>
+                    <p class="text-secondary">The next generation of digital payments</p>
+                    <div class="loader-ellipsis" style='margin-left:10px;'>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id='mainmenu'></div>
+    <div id='pagemaster'></div>
+    <div id='bottomup'></div>
+    <div id="mainmodal"></div>
+    <script>
+        document.onreadystatechange = function (event) {
+            if (document.readyState === "complete") {
+                var s = document.getElementById('screenloader');
+                s.style.display = 'none';
+            }
+        };
+    </script>
+
+    <script>!function (e, o, t) { e[t] = function (n, r) { var c = { sandbox: "https://sandbox-merchant.revolut.com/embed.js", prod: "https://merchant.revolut.com/embed.js", dev: "https://merchant.revolut.codes/embed.js" }, d = o.createElement("script"); d.id = "revolut-checkout", d.src = c[r] || c.prod, d.async = !0, o.head.appendChild(d); var s = { then: function (r, c) { d.onload = function () { r(e[t](n)) }, d.onerror = function () { o.head.removeChild(d), c && c(new Error(t + " is failed to load")) } } }; return "function" == typeof Promise ? Promise.resolve(s) : s } }(window, document, "RevolutCheckout");</script>
+    <!--script>
+    (function(d){var b=window,a=document;b.tot=b.tot||function(){(b.tot.q=b.tot.q||[]).push(arguments)};var c=a.getElementsByTagName("script")[0];a.getElementById("tot-embed")||(a=a.createElement("script"),a.id="tot-embed",a.async=1,a.src=d,c.parentNode.insertBefore(a,c))})("https://sandbox.tokenoftrust.com/embed/embed.js");
+    tot('setPublicKey', "public_test_oNBRd6YJyMusFKnO1gJz");
+    </script-->
+</body>
+
+</html>
