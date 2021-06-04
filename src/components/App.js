@@ -19,7 +19,6 @@ import Homeswipemenu from './Homeswipemenu';
 import Innerheader from './Innerheader';
 import Landing from './Landing';
 import Login from './Login';
-import Nayiem from './Nayiem';
 import Notifications from './Notifications';
 import Persona from './Persona';
 import Pricingplan from './Pricingplan';
