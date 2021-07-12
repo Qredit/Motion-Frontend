@@ -16,19 +16,24 @@ axios.interceptors.request.use( config => {
 var userService = {
 
   get: async () => {
-  	let data = {};
+  	let data = {
+  		serviceid: "60ead773c06b18e7e103d873"
+  	};
     let res = await axios.post(`/api/user`, data);
     return res.data || [];
   },
 
   gettottoken: async () => {
-  	let data = {};
+  	let data = {
+  		serviceid: "60ead773c06b18e7e103d873"
+  	};
     let res = await axios.post(`/api/usertottoken`, data);
     return res.data || [];
   },
 
   savepersonasettings: async (settings) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		settings: settings
   	};
     let res = await axios.post(`/api/usersavepersonasettings`, data);
@@ -36,25 +41,32 @@ var userService = {
   },
   
   invalidatesessions: async () => {
-  	let data = {};
+  	let data = {
+  		serviceid: "60ead773c06b18e7e103d873"
+  	};
     let res = await axios.post(`/api/userinvalidatesessions`, data);
     return res.data || [];
   },
 
   logout: async () => {
-  	let data = {};
+  	let data = {
+  		serviceid: "60ead773c06b18e7e103d873"
+  	};
     let res = await axios.post(`/api/userlogout`, data);
     return res.data || [];
   },
   
   getimages: async () => {
-  	let data = {};
+  	let data = {
+  		serviceid: "60ead773c06b18e7e103d873"
+  	};
     let res = await axios.post(`/api/userimages`, data);
     return res.data || [];
   },
 
   getloginhistory: async (skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       skip: skip,
       limit: limit
     };
@@ -64,6 +76,7 @@ var userService = {
 
   getcontacts: async (skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       skip: skip,
       limit: limit
     };
@@ -73,6 +86,7 @@ var userService = {
 
   getcontact: async (contactid) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       contactid: contactid
     };
     let res = await axios.post(`/api/usergetcontact`, data);
@@ -81,6 +95,7 @@ var userService = {
   
   getpendingcontacts: async (skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       skip: skip,
       limit: limit
     };
@@ -90,6 +105,7 @@ var userService = {
   
   findcontact: async (email) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       email: email,
     };
     let res = await axios.post(`/api/userfindcontact`, data);
@@ -98,6 +114,7 @@ var userService = {
   
   newcontact: async (otheruserid) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       otheruserid: otheruserid,
     };
     let res = await axios.post(`/api/usernewcontact`, data);
@@ -106,6 +123,7 @@ var userService = {
 
   approvecontact: async (contactid) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       contactid: contactid,
     };
     let res = await axios.post(`/api/userapprovecontact`, data);
@@ -114,6 +132,7 @@ var userService = {
   
   declinecontact: async (contactid) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       contactid: contactid,
     };
     let res = await axios.post(`/api/userdeclinecontact`, data);
@@ -121,13 +140,16 @@ var userService = {
   },
   
   bip39recorded: async () => {
-  	let data = {};
+  	let data = {
+  		serviceid: "60ead773c06b18e7e103d873"
+  	};
     let res = await axios.post(`/api/userbip39recorded`, data);
     return res.data || [];
   },
 
   getpassphrase: async (rdata) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       password: rdata.password
     };
     let res = await axios.post(`/api/userpassphrase`, data);
@@ -136,6 +158,7 @@ var userService = {
 
   changepassword: async (rdata) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       password: rdata.password,
       newpass: rdata.newpass
     };
@@ -145,6 +168,7 @@ var userService = {
   
   register: async (rdata) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       entity: rdata.entity,
       email: rdata.email,
       companyname: rdata.companyname,
@@ -160,6 +184,7 @@ var userService = {
 
   login: async (rdata) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       email: rdata.email,
       password: rdata.password
     };
@@ -169,6 +194,7 @@ var userService = {
   
   createrevolutorder: async (rdata) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       plan: rdata.plan,
       period: rdata.period,
       amount: rdata.amount
@@ -180,6 +206,7 @@ var userService = {
   revolutpaymentapproved: async (rdata) => {
 
 	let data = {
+		serviceid: "60ead773c06b18e7e103d873",
 		plan: rdata.plan,
 		period: rdata.period,
 		amount: rdata.amount,
@@ -192,6 +219,7 @@ var userService = {
   
   createcoinpaymentsorder: async (rdata) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       plan: rdata.plan,
       period: rdata.period,
       amount: rdata.amount,
@@ -203,6 +231,7 @@ var userService = {
   
   selectdowngradeplan: async (rdata) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       plan: rdata.plan,
       period: rdata.period,
       amount: rdata.amount
@@ -213,6 +242,7 @@ var userService = {
 
   updateprofilepic: async (image) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       image: image
     };
     let res = await axios.post(`/api/userupdateprofilepic`, data);
@@ -221,6 +251,7 @@ var userService = {
   
   updateprofilebg: async (image) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       image: image
     };
     let res = await axios.post(`/api/userupdateprofilebg`, data);
@@ -229,6 +260,7 @@ var userService = {
 
   setlanguage: async (language) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       language: language
     };
     let res = await axios.post(`/api/usersetlanguage`, data);
@@ -236,13 +268,16 @@ var userService = {
   },
   
   getnotificationcount: async () => {
-  	let data = {};
+  	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
+  	};
     let res = await axios.post(`/api/usergetnotificationcount`, data);
     return res.data || [];
   },
   
   getnotification: async (id) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		id: id
   	};
     let res = await axios.post(`/api/usergetnotification`, data);
@@ -251,6 +286,7 @@ var userService = {
 
   getnotificationhistory: async (skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       skip: skip,
       limit: limit
     };
@@ -260,6 +296,7 @@ var userService = {
   
   getwalletaddresses: async (id) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		id: id
   	};
     let res = await axios.post(`/api/usergetwalletaddresses`, data);
@@ -268,6 +305,7 @@ var userService = {
 
   getwalletbalance: async (id) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		id: id
   	};
     let res = await axios.post(`/api/usergetwalletbalance`, data);
@@ -276,6 +314,7 @@ var userService = {
   
   getwallettransactions: async (walletid, skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       walletid: walletid,
       skip: skip,
       limit: limit
@@ -286,6 +325,7 @@ var userService = {
   
   gettransaction: async (walletid, id) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       walletid: walletid,
       id: id
     };
@@ -295,6 +335,7 @@ var userService = {
   
   sendtransaction: async (walletid, contactid, address, amount, pass) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		walletid: walletid,
   		contactid: contactid,
   		address: address,
@@ -307,6 +348,7 @@ var userService = {
 
   sendqreditvote: async (walletid, tovote, pass) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		walletid: walletid,
   		tovote: tovote,
   		pass: pass
@@ -317,6 +359,7 @@ var userService = {
   
   getdelegatelist: async (walletid) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		walletid: walletid
   	};
     let res = await axios.post(`/api/usergetdelegatelist`, data);
@@ -325,6 +368,7 @@ var userService = {
   
   getwalletvotes: async (walletid) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		walletid: walletid
   	};
     let res = await axios.post(`/api/usergetwalletvotes`, data);
@@ -333,6 +377,7 @@ var userService = {
 
   doqreditswap: async (passphrase) => {
   	let data = {
+  		serviceid: "60ead773c06b18e7e103d873",
   		passphrase: passphrase
   	};
     let res = await axios.post(`/api/userdoqreditswap`, data);
@@ -341,6 +386,7 @@ var userService = {
   
   getswaptransactions: async (skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       skip: skip,
       limit: limit
     };
@@ -350,6 +396,7 @@ var userService = {
 
   getalltransactions: async (skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       skip: skip,
       limit: limit
     };
@@ -359,6 +406,7 @@ var userService = {
   
   createinvitation: async (emailphone) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       emailphone: emailphone
     };
     let res = await axios.post(`/api/usercreateinvitation`, data);
@@ -367,6 +415,7 @@ var userService = {
   
   getinvitations: async (skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       skip: skip,
       limit: limit
     };
@@ -376,6 +425,7 @@ var userService = {
 
   getreferrals: async (skip, limit) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       skip: skip,
       limit: limit
     };
@@ -384,13 +434,16 @@ var userService = {
   },
 
   getuserphones: async () => {
-    let data = { };
+    let data = {
+    	serviceid: "60ead773c06b18e7e103d873"
+    };
     let res = await axios.post(`/api/usergetphones`, data);
     return res.data || [];
   },
   
   getpincode: async (phone) => {
     let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
     	phone: phone
     };
     let res = await axios.post(`/api/usergetpincode`, data);
@@ -399,6 +452,7 @@ var userService = {
 
   submitpincode: async (phone, pin) => {
     let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
     	phone: phone,
     	pin: pin
     };
@@ -408,6 +462,7 @@ var userService = {
 
   setprimaryphone: async (id) => {
     let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
     	id: id
     };
     let res = await axios.post(`/api/usersetprimaryphone`, data);
@@ -415,13 +470,16 @@ var userService = {
   },
 
   getuseraddresses: async () => {
-    let data = { };
+    let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
+    };
     let res = await axios.post(`/api/usergetaddresses`, data);
     return res.data || [];
   },
 
   addnewaddress: async (fields) => {
     let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
     	line1: fields.line1,
     	line2: fields.line2,
     	city: fields.city,
@@ -435,6 +493,7 @@ var userService = {
 
   setprimaryaddress: async (id) => {
     let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
     	id: id
     };
     let res = await axios.post(`/api/usersetprimaryaddress`, data);
@@ -443,6 +502,7 @@ var userService = {
   
   setnotification: async (item, value) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       item: item,
       value: value
     };
@@ -452,6 +512,7 @@ var userService = {
   
   upgradeplan: async (plan) => {
     let data = {
+      serviceid: "60ead773c06b18e7e103d873",
       plan: plan,
     };
     let res = await axios.post(`/api/userupgradeplan`, data);
@@ -459,19 +520,24 @@ var userService = {
   },
 
   getplans: async () => {
-    let data = {};
+    let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
+    };
     let res = await axios.post(`/api/usergetplans`, data);
     return res.data || [];
   },
   
   getavailcryptocurr: async () => {
-    let data = {};
+    let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
+    };
     let res = await axios.post(`/api/usergetavailablecryptocurrencies`, data);
     return res.data || [];
   },
   
   createcryptowallet: async (ticker, password) => {
     let data = {
+    	serviceid: "60ead773c06b18e7e103d873",
     	ticker: ticker,
     	password: password
     };

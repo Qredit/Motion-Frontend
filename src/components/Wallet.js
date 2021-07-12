@@ -1338,7 +1338,7 @@ toast.success('request');
 													</div>
 													<div className="col align-self-center pl-0">
 													<div className="text-default">
-															<h6 className={"text-" + (transactionitem.direction==='in'?'success':'danger')}>{(transactionitem.direction==='in'?'+':'-')}{parseInt(transactionitem.details.amount)/100000000 + ' ' + this.state.walletticker}</h6>
+															<h6 className={"text-" + (transactionitem.direction==='in'?'success':'danger')}>{(transactionitem.direction==='in'?'+':'-')}{parseFloat(transactionitem.amount['$numberDecimal']).toFixed(8) + ' ' + this.state.walletticker}</h6>
 														</div>
                                       				  <h6 className="mb-1" onClick={ e => this.doCopyTxid(e, transactionitem.details.id) }>{'ID: ' + transactionitem.details.id.substr(0,7) + '...' + transactionitem.details.id.substr(-7)}</h6>
                                     				</div>
@@ -1347,8 +1347,7 @@ toast.success('request');
 															<div className="row mb-1">
 																<div className="col">
 																	<p className="small text-secondary mb-0"><strong>Timestamp:</strong>&nbsp;{transactionitem.details.timestamp.human.substr(0,19).replace('T',' at ')}</p>
-																	<p className="small text-secondary mb-0"><strong>Wallet:</strong>&nbsp;{transactionitem.details.recipient}</p>
-																	<p className="small text-secondary"><strong>Type:</strong>&nbsp;{this.getType(transactionitem.details.type)}&nbsp;&nbsp;<strong>Fee:</strong>&nbsp;{parseInt(transactionitem.details.fee)/100000000}</p>
+																	<p className="small text-secondary"><strong>Type:</strong>&nbsp;{transactionitem.internaltype}</p>
 
 																</div>
 															</div>
