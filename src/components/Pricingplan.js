@@ -470,8 +470,8 @@ class Pricingplan extends React.Component {
 									<h5 className="first-pricing-table-title">{planitem.name}
 									</h5>
 									<span style={{textAlign: "center"}} className="plan-price second-pricing-table-price">
-										{parseFloat(planitem.yearlyprice['$numberDecimal'])===0?planitem.iscustomplan===true?(<i>Get Quote</i>):(<i>FREE</i>):(
-										<i>€{parseFloat(planitem.yearlyprice['$numberDecimal']).toFixed(2).replace('.',',')} <span style={{opacity: "0.5", fontSize: "14px"}}>/year</span></i>)}
+										{parseFloat(planitem.yearlyprice)===0?planitem.iscustomplan===true?(<i>Get Quote</i>):(<i>FREE</i>):(
+										<i>€{parseFloat(planitem.yearlyprice).toFixed(2).replace('.',',')} <span style={{opacity: "0.5", fontSize: "14px"}}>/year</span></i>)}
 									</span>
 									<ul className="first-pricing-table-body">
 

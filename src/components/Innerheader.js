@@ -82,7 +82,7 @@ class Innerheader extends React.Component {
     <div className="col-6 col-md-6">
       <div className="card border-0 mb-4">
         <div className="card-body">
-          <h3 className="mt-3 mb-0 font-weight-normal">€ {this.state.user?parseFloat(this.state.user.cash_balance['$numberDecimal']).toFixed(2):0.00}</h3>
+          <h3 className="mt-3 mb-0 font-weight-normal">€ {this.state.user?parseFloat(this.state.user.cash_balance).toFixed(2):0.00}</h3>
           <p className="text-secondary small">Cash Balance</p>
         </div>
       </div>
@@ -90,7 +90,7 @@ class Innerheader extends React.Component {
     <div className="col-6 col-md-6">
       <div className="card border-0 mb-4">
         <div className="card-body">
-          <h3 className="mt-3 mb-0 font-weight-normal">€ {this.state.user?parseFloat(this.state.user.crypto_balance['$numberDecimal']).toFixed(2):0.00}</h3>
+          <h3 className="mt-3 mb-0 font-weight-normal">€ {this.state.user?parseFloat(this.state.user.crypto_balance).toFixed(2):0.00}</h3>
           <p className="text-secondary small">Crypto Value</p>
         </div>
       </div>

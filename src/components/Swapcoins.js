@@ -245,12 +245,12 @@ class Swapcoins extends React.Component {
 										<div className="row bg-transactions">
 											<div className="col align-self-center pl-4">
 												<div className="text-default">
-													<h6 className="text-success">{parseFloat(transactionitem.incomingamount['$numberDecimal']).toFixed(8)} XQR (Old)</h6>
+													<h6 className="text-success">{parseFloat(transactionitem.incomingamount).toFixed(8)} XQR (Old)</h6>
 												</div>
 										  		<h6 className="mb-1" onClick={ e => this.doCopyTxid(e, transactionitem.incomingtxid || '') }>{'ID: ' + (transactionitem.incomingtxid?transactionitem.incomingtxid.substr(0,7) + '...' + transactionitem.incomingtxid.substr(-7):'N/A')}</h6>
 											
 												<div className="text-default">
-													<h6 className="text-success">{transactionitem.outgoingamount?parseFloat(transactionitem.outgoingamount['$numberDecimal']).toFixed(8):'N/A'} XQR (New)</h6>
+													<h6 className="text-success">{transactionitem.outgoingamount?parseFloat(transactionitem.outgoingamount).toFixed(8):'N/A'} XQR (New)</h6>
 												</div>
 										  		<h6 className="mb-1" onClick={ e => this.doCopyTxid(e, transactionitem.outgoingtxid || '') }>{'ID: ' + (transactionitem.outgoingtxid?transactionitem.outgoingtxid.substr(0,7) + '...' + transactionitem.outgoingtxid.substr(-7):'N/A')}</h6>
 											
