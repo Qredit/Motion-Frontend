@@ -168,7 +168,7 @@ class Mainheader extends React.Component {
 			);
 
 		}
-		else if (requestedPage === 'register')
+		else if (requestedPage === 'register' || requestedPage === 'loginhelp')
 		{
 			return (
 				<div className="row">

@@ -97,7 +97,8 @@ class Login extends React.Component {
 
 				let data = {
 					email: this.state.loginForm.login_email,
-					password: this.state.loginForm.login_password
+					password: this.state.loginForm.login_password,
+					tfapin: this.state.loginForm.login_tfapin
 				};
 
 				let res = await userService.login(data);
@@ -174,7 +175,12 @@ class Login extends React.Component {
 										<input required type="password" id='login_password' className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginFormChange} autoComplete="new-password" value={this.state.loginForm.login_password || ''} />
 										<label className="form-control-label text-white">Password</label>
 									</div>
-									<p className="text-right"><li onClick={ e => this.setCurrentPage(e, 'forgotpass', 'Forgot Password') } className="text-white lilink">Forgot Password?</li>
+									<div className={"form-group float-label position-relative " + (this.state.loginForm.login_tfapin?'active':'')}>
+										<input required type="text" id="login_tfapin" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginFormChange} autoComplete="new-password" value={this.state.loginForm.login_tfapin || ''} />
+										<label className="form-control-label text-white">2FA Pin (if active)</label>
+									</div>
+									<p className="text-right">
+										<li onClick={ e => this.setCurrentPage(e, 'loginhelp', 'Login Help') } className="text-white lilink">Forgot Password?</li>
 									</p>
 									<div id="spinoverlay" style={this.state.loggingIn===true?{}:{display:'none'}}>
 										<div className="spinloader"></div>

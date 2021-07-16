@@ -19,6 +19,7 @@ import Homeswipemenu from './Homeswipemenu';
 import Innerheader from './Innerheader';
 import Landing from './Landing';
 import Login from './Login';
+import LoginHelp from './LoginHelp';
 import Notifications from './Notifications';
 import Persona from './Persona';
 import Pricingplan from './Pricingplan';
@@ -232,7 +233,7 @@ class App extends React.Component {
 		var isLoggedIn = this.state.isLoggedIn;
 		var requestedPage = this.state.requestedPage;
 
-		const noauthPages = ['landing', 'login', 'register'];
+		const noauthPages = ['landing', 'login', 'register', 'loginhelp'];
 
 		if (isLoggedIn === false && noauthPages.indexOf(requestedPage) === -1)
 		{
@@ -257,6 +258,16 @@ class App extends React.Component {
 			return (
 				<ScrollToTop>
 					<Login />
+				</ScrollToTop>
+			);
+
+		}
+		else if (requestedPage === 'loginhelp')
+		{
+
+			return (
+				<ScrollToTop>
+					<LoginHelp />
 				</ScrollToTop>
 			);
 

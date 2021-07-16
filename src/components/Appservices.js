@@ -15,6 +15,8 @@ import Loginhistory from './Loginhistory';
 import AppservicesPhone from './AppservicesPhone';
 import AppservicesAddress from './AppservicesAddress';
 import AppservicesNotifications from './AppservicesNotifications';
+import AppservicesTwoFactor from './AppservicesTwoFactor';
+
 
 class Appservices extends React.Component {
 
@@ -286,6 +288,21 @@ class Appservices extends React.Component {
                             </a>
                             <AppservicesSecurity/>
 
+                            <a onClick={ e => this.setCurrentItem(e, 'twofactor') } href="/" className="list-group-item list-group-item-action border-color">
+                                <div className="row">
+                                    <div className="col-auto">
+                                        <div className="avatar avatar-40 text-default">
+                                            <figure className="m-0 background icon icon-24 mb-2" style={{backgroundImage: 'url("/img/icons/essential/svg/082-shield.svg")'}} />
+                                        </div>
+                                    </div>
+                                    <div className="col align-self-center pl-0">
+                                        <h6 className="mb-1">Two Factor Authentication</h6>
+                                        <p className="text-secondary">Enable or disable</p>
+                                    </div>
+                                </div>
+                            </a>
+                            <AppservicesTwoFactor/>
+                            
                             <a onClick={ e => this.setCurrentItem(e, 'loginhistory') } href="/" className="list-group-item list-group-item-action border-color">
                                 <div className="row">
                                     <div className="col-auto">

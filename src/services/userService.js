@@ -166,6 +166,75 @@ var userService = {
     return res.data || [];
   },
   
+  usertwofactor: async (rdata) => {
+    let data = {
+      serviceid: "60ead773c06b18e7e103d873"
+    };
+    let res = await axios.post(`/api/usertwofactor`, data);
+    return res.data || [];
+  },
+  
+  usertwofactorsave: async (rdata) => {
+    let data = {
+      serviceid: "60ead773c06b18e7e103d873",
+      pincode: rdata.pincode
+    };
+    let res = await axios.post(`/api/usertwofactorsave`, data);
+    return res.data || [];
+  },
+  
+  usertwofactordisable: async (rdata) => {
+    let data = {
+      serviceid: "60ead773c06b18e7e103d873",
+      pincode: rdata.pincode
+    };
+    let res = await axios.post(`/api/usertwofactordisable`, data);
+    return res.data || [];
+  },
+
+  usergetemailauth: async (rdata) => {
+    let data = {
+      email: rdata.email,
+      serviceid: "60ead773c06b18e7e103d873"
+    };
+    let res = await axios.post(`/api/usergetemailauth`, data);
+    return res.data || [];
+  },
+  
+  userresetpasspassphrase: async (rdata) => {
+    let data = {
+      serviceid: "60ead773c06b18e7e103d873",
+      email: rdata.email,
+      word1: rdata.word1,
+      word2: rdata.word2,
+      word3: rdata.word3,
+      word4: rdata.word4,
+      word5: rdata.word5,
+      word6: rdata.word6,
+      word7: rdata.word7,
+      word8: rdata.word8,
+      word9: rdata.word9,
+      word10: rdata.word10,
+      word11: rdata.word11,
+      word12: rdata.word12,
+      password: rdata.password,
+      authcode: rdata.authcode
+    };
+    let res = await axios.post(`/api/userresetpasspassphrase`, data);
+    return res.data || [];
+  },
+
+  userresetpassnopassphrase: async (rdata) => {
+    let data = {
+      serviceid: "60ead773c06b18e7e103d873",
+      email: rdata.email,
+      password: rdata.password,
+      authcode: rdata.authcode
+    };
+    let res = await axios.post(`/api/userresetpassnopassphrase`, data);
+    return res.data || [];
+  },
+  
   register: async (rdata) => {
     let data = {
       serviceid: "60ead773c06b18e7e103d873",
@@ -186,7 +255,8 @@ var userService = {
     let data = {
       serviceid: "60ead773c06b18e7e103d873",
       email: rdata.email,
-      password: rdata.password
+      password: rdata.password,
+      tfapin: rdata.tfapin
     };
     let res = await axios.post(`/api/auth/signin`, data);
     return res.data || [];
