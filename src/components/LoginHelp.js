@@ -64,7 +64,7 @@ class LoginHelp extends React.Component {
 
 	};
 
-	handleLoginFormChange = event => {
+	handleLoginHelpFormChange = event => {
 
 		if (event.target.type === 'checkbox')
 		{
@@ -171,69 +171,88 @@ class LoginHelp extends React.Component {
 		}
 			
 	};
-/*
-	doLogin = (e) => {
+	
+	doSendPassResetPassphrase = (e) => {
 
-		if (this.state.loginForm.login_password === '' 
-			|| this.state.loginForm.login_email === ''
-			|| !this.state.loginForm.login_password
-			|| !this.state.loginForm.login_email)
+
+		if (this.state.loginHelpForm.login_password !== this.state.loginHelpForm.login_password2)
 		{
-			toast.error('Missing credentials');
+			toast.error('Passwords do not match');
 		}
 		else
 		{
 		
-			store.dispatch( updateStore({ key: 'loggingIn', value: true }) );
-
 			(async () => {
-
+			
 				let data = {
-					email: this.state.loginForm.login_email,
-					password: this.state.loginForm.login_password,
-					tfapin: this.state.loginForm.login_tfapin
+					email: this.state.loginHelpForm.login_email,
+					word1: this.state.loginHelpForm.login_word1,
+					word2: this.state.loginHelpForm.login_word2,
+					word3: this.state.loginHelpForm.login_word3,
+					word4: this.state.loginHelpForm.login_word4,
+					word5: this.state.loginHelpForm.login_word5,
+					word6: this.state.loginHelpForm.login_word6,
+					word7: this.state.loginHelpForm.login_word7,
+					word8: this.state.loginHelpForm.login_word8,
+					word9: this.state.loginHelpForm.login_word9,
+					word10: this.state.loginHelpForm.login_word10,
+					word11: this.state.loginHelpForm.login_word11,
+					word12: this.state.loginHelpForm.login_word12,
+					password: this.state.loginHelpForm.login_password,
+					authcode: this.state.loginHelpForm.login_emailauth
 				};
 
-				let res = await userService.login(data);
+				let res = await userService.userresetpasspassphrase(data);
 
-				store.dispatch( updateStore({ key: 'loggingIn', value: false }) );
-				
 				if (res.status === true)
 				{
-
-					if (res.accessToken) {
-						localStorage.setItem("accessToken", res.accessToken);
-					}
-				
-					store.dispatch( updateStore({ key: 'loginForm', value: {} }) );
-					store.dispatch( updateStore({ key: 'isLoggedIn', value: true }) );
-					store.dispatch( updateStore({ key: 'accessToken', value: res.accessToken }) );
-					store.dispatch( updateStore({ key: 'requestedPage', value: 'homepage' }) );
-					store.dispatch( updateStore({ key: 'requestedPageTitle', value: 'Home' }) );
-
-					store.dispatch( updateStore({ key: 'user', value: res.user }) );
-
 					toast.success(res.message);
-					
-					let resi = await userService.getimages();
-
-					if (resi.status === true)
-					{
-						store.dispatch( updateStore({ key: 'userImages', value: resi.userimages }) );
-					}
-					
 				}
 				else
 				{
 					toast.error(res.message);
 				}
-
+				
 			})();
-
+			
 		}
-
+			
 	};
-*/
+	
+	doSendPassResetNoPassphrase = (e) => {
+
+
+		if (this.state.loginHelpForm.login_password !== this.state.loginHelpForm.login_password2)
+		{
+			toast.error('Passwords do not match');
+		}
+		else
+		{
+		
+			(async () => {
+			
+				let data = {
+					email: this.state.loginHelpForm.login_email,
+					password: this.state.loginHelpForm.login_password,
+					authcode: this.state.loginHelpForm.login_emailauth
+				};
+
+				let res = await userService.userresetpassnopassphrase(data);
+
+				if (res.status === true)
+				{
+					toast.success(res.message);
+				}
+				else
+				{
+					toast.error(res.message);
+				}
+				
+			})();
+			
+		}
+			
+	};
 
 
 	
@@ -396,7 +415,57 @@ class LoginHelp extends React.Component {
 					</div>		
 					<div className="row justify-content-center">	
 						<ul className="nav nav-pills justify-content-center mb-4">
-							<li className="nav-item" onClick={ e => this.doPassResetPassphrase(e) } href="/" className="nav-link active" style={{marginRight:'5px'}}>
+							<li className="nav-item" onClick={ e => this.doSendPassResetPassphrase(e) } href="/" className="nav-link active" style={{marginRight:'5px'}}>
+								<div>
+									<span className="material-icons icon" />Reset Password
+								</div>
+							</li>
+						</ul>
+					
+					</div>
+				</div>):''}
+				
+				{this.state.loginHelpForm.dopassresetnopassphrase === true?(
+				<div className="container h-100 text-white">
+					<div className="row justify-content-center">
+						<h3 className="font-weight-normal mb-1">Reset Zero Balance Account</h3>
+					</div>
+					<div className="row justify-content-center">
+					<div className="col-11 col-sm-7 col-md-6 col-lg-5 col-xl-4">
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_email?'active':'')}>
+							<input required type="text" id="login_email" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_email || ''} />
+							<label className="form-control-label text-white">Account Email</label>
+						</div>
+						
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_emailauth?'active':'')}>
+							<input required type="text" id="login_emailauth" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_emailauth || ''} />
+							<label className="form-control-label text-white">Email Authorization Code</label>
+						</div>
+
+						<div className="row justify-content-center">	
+							<ul className="nav nav-pills justify-content-center mb-4">
+								<li className="nav-item" onClick={ e => this.doSendEmailAuthCode(e) } href="/" className="nav-link active" style={{marginRight:'5px'}}>
+									<div>
+										<span className="material-icons icon" />Send Auth Code
+									</div>
+								</li>
+							</ul>
+					
+						</div>
+						
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_password?'active':'')}>
+							<input required type="password" id='login_password' className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_password || ''} />
+							<label className="form-control-label text-white">New Password</label>
+						</div>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_password2?'active':'')}>
+							<input required type="password" id='login_password2' className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_password2 || ''} />
+							<label className="form-control-label text-white">Confirm Password</label>
+						</div>
+					</div>
+					</div>		
+					<div className="row justify-content-center">	
+						<ul className="nav nav-pills justify-content-center mb-4">
+							<li className="nav-item" onClick={ e => this.doSendPassResetNoPassphrase(e) } href="/" className="nav-link active" style={{marginRight:'5px'}}>
 								<div>
 									<span className="material-icons icon" />Reset Password
 								</div>
