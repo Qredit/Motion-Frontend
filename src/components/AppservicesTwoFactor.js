@@ -61,7 +61,7 @@ class AppservicesTwoFactor extends React.Component {
 		
 		(async () => {
 
-			let data = {pincode: this.state.tfaForm.tfapin};
+			let data = {pincode: this.state.tfaForm.tfapin, password: this.state.tfaForm.password};
 
 			let res = await userService.usertwofactorsave(data);
 			
@@ -168,13 +168,18 @@ class AppservicesTwoFactor extends React.Component {
                     <div className="card-body">
 						
 						{(this.state.tfaForm.qrcodedataurl)?(
-						
+							<div>
 							<div>
 							<img style={{width: '150px', height: '150px'}} src={this.state.tfaForm.qrcodedataurl} />
 							<br />
 							Scan barcode with your authenticator app and enter the displayed PIN code to activate.
 							</div>
-							
+
+							<div className="form-group float-label">
+								<input type="password" className={"form-control " + (this.state.tfaForm.password?'active':'')} autoComplete="off" id="password" onChange={this.handleTfaFormChange} value={this.state.tfaForm.password || ''}/>
+								<label className="form-control-label">Password</label>
+							</div>
+                        	</div>
 						):(<div>Enter your authenticator PIN Code to disable Two Factor</div>)}
 						
                         <div className="form-group float-label">

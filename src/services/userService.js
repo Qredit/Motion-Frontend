@@ -177,6 +177,7 @@ var userService = {
   usertwofactorsave: async (rdata) => {
     let data = {
       serviceid: "60ead773c06b18e7e103d873",
+      password: rdata.password,
       pincode: rdata.pincode
     };
     let res = await axios.post(`/api/usertwofactorsave`, data);
