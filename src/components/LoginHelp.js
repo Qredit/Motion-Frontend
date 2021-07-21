@@ -254,6 +254,41 @@ class LoginHelp extends React.Component {
 			
 	};
 
+	doSendTwoFactorReset = (e) => {
+
+
+		if (!this.state.loginHelpForm.login_password || this.state.loginHelpForm.login_password === '')
+		{
+			toast.error('Missing field data');
+		}
+		else
+		{
+		
+			(async () => {
+			
+				let data = {
+					email: this.state.loginHelpForm.login_email,
+					password: this.state.loginHelpForm.login_password,
+					authcode: this.state.loginHelpForm.login_emailauth,
+					word1: this.state.loginHelpForm.login_word1
+				};
+
+				let res = await userService.userresettwofactor(data);
+
+				if (res.status === true)
+				{
+					toast.success(res.message);
+				}
+				else
+				{
+					toast.error(res.message);
+				}
+				
+			})();
+			
+		}
+			
+	};
 
 	
 	render() {
@@ -358,47 +393,47 @@ class LoginHelp extends React.Component {
 							<label className="form-control-label text-white">Word #1</label>
 						</div>
 						
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word2?'active':'')}>
 							<input required type="text" id="login_word2" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word2 || ''} />
 							<label className="form-control-label text-white">Word #2</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word3?'active':'')}>
 							<input required type="text" id="login_word3" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word3 || ''} />
 							<label className="form-control-label text-white">Word #3</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word4?'active':'')}>
 							<input required type="text" id="login_word4" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word4 || ''} />
 							<label className="form-control-label text-white">Word #4</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word5?'active':'')}>
 							<input required type="text" id="login_word5" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word5 || ''} />
 							<label className="form-control-label text-white">Word #5</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word6?'active':'')}>
 							<input required type="text" id="login_word6" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word6 || ''} />
 							<label className="form-control-label text-white">Word #6</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word7?'active':'')}>
 							<input required type="text" id="login_word7" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word7 || ''} />
 							<label className="form-control-label text-white">Word #7</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word8?'active':'')}>
 							<input required type="text" id="login_word8" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word8 || ''} />
 							<label className="form-control-label text-white">Word #8</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word9?'active':'')}>
 							<input required type="text" id="login_word9" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word9 || ''} />
 							<label className="form-control-label text-white">Word #9</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word10?'active':'')}>
 							<input required type="text" id="login_word10" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word10 || ''} />
 							<label className="form-control-label text-white">Word #10</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word11?'active':'')}>
 							<input required type="text" id="login_word11" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word11 || ''} />
 							<label className="form-control-label text-white">Word #11</label>
 						</div>
-						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word12?'active':'')}>
 							<input required type="text" id="login_word12" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word12 || ''} />
 							<label className="form-control-label text-white">Word #12</label>
 						</div>
@@ -474,11 +509,58 @@ class LoginHelp extends React.Component {
 					
 					</div>
 				</div>):''}
-				
-				{this.state.loginHelpForm.dotwofactorreset === true?(
-				<div className="row justify-content-center">
 
+
+				{this.state.loginHelpForm.dotwofactorreset === true?(
+				<div className="container h-100 text-white">
+					<div className="row justify-content-center">
+						<h3 className="font-weight-normal mb-1">Two Factor Reset</h3>
+					</div>
+					<div className="row justify-content-center">
+					<div className="col-11 col-sm-7 col-md-6 col-lg-5 col-xl-4">
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_email?'active':'')}>
+							<input required type="text" id="login_email" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_email || ''} />
+							<label className="form-control-label text-white">Account Email</label>
+						</div>
+						
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_emailauth?'active':'')}>
+							<input required type="text" id="login_emailauth" className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_emailauth || ''} />
+							<label className="form-control-label text-white">Email Authorization Code</label>
+						</div>
+
+						<div className="row justify-content-center">	
+							<ul className="nav nav-pills justify-content-center mb-4">
+								<li className="nav-item" onClick={ e => this.doSendEmailAuthCode(e) } href="/" className="nav-link active" style={{marginRight:'5px'}}>
+									<div>
+										<span className="material-icons icon" />Send Auth Code
+									</div>
+								</li>
+							</ul>
+					
+						</div>
+						
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_password?'active':'')}>
+							<input required type="password" id='login_password' className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_password || ''} />
+							<label className="form-control-label text-white">Current Password</label>
+						</div>
+						<div className={"form-group float-label position-relative " + (this.state.loginHelpForm.login_word1?'active':'')}>
+							<input required type="text" id='login_word1' className="form-control text-white" onKeyDown={this.onKeyDownLogin} onChange={this.handleLoginHelpFormChange} autoComplete="new-password" value={this.state.loginHelpForm.login_word1 || ''} />
+							<label className="form-control-label text-white">Word #1 of Passphrase</label>
+						</div>
+					</div>
+					</div>		
+					<div className="row justify-content-center">	
+						<ul className="nav nav-pills justify-content-center mb-4">
+							<li className="nav-item" onClick={ e => this.doSendTwoFactorReset(e) } href="/" className="nav-link active">
+								<div>
+									<span className="material-icons icon" />Reset Two Factor
+								</div>
+							</li>
+						</ul>
+					
+					</div>
 				</div>):''}
+
 				
 			</>
 		);

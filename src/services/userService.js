@@ -235,6 +235,18 @@ var userService = {
     return res.data || [];
   },
   
+  userresettwofactor: async (rdata) => {
+    let data = {
+      serviceid: "60ead773c06b18e7e103d873",
+      email: rdata.email,
+      password: rdata.password,
+      authcode: rdata.authcode,
+      word1: rdata.word1
+    };
+    let res = await axios.post(`/api/userresettwofactor`, data);
+    return res.data || [];
+  },
+  
   register: async (rdata) => {
     let data = {
       serviceid: "60ead773c06b18e7e103d873",

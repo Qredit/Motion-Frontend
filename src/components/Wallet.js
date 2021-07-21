@@ -1285,7 +1285,7 @@ toast.success('request');
 																	<p className="mb-0" onClick={ e => this.doCopyAddress(e, addressitem.address) } style={{cursor:'pointer'}}>{addressitem.address}</p>
 																</div>
 															</div>
-															<p className="small text-secondary">Created: {addressitem.created_at.substr(0,19).replace('T',' ')} UTC</p>
+															<p className="small text-secondary">Created: {addressitem.createdAt?addressitem.createdAt.substr(0,19).replace('T',' '):''} UTC</p>
 														</div>
 
 													</div>
@@ -1455,7 +1455,7 @@ toast.success('request');
 																	<p className="mb-0" onClick={ e => this.doCopyAddress(e, addressitem.address) } style={{cursor:'pointer'}}>{addressitem.address}</p>
 																</div>
 															</div>
-															<p className="small text-secondary">Created: {addressitem.created_at.substr(0,19).replace('T',' ')} UTC</p>
+															<p className="small text-secondary">Created: {addressitem.createdAt?addressitem.createdAt.substr(0,19).replace('T',' '):''} UTC</p>
 														</div>
 
 													</div>

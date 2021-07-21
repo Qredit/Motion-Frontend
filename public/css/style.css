@@ -3819,6 +3819,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  cursor: pointer;
   color: #fff;
   background: rgb(0, 142, 255);
   background: linear-gradient(29deg, rgba(0, 142, 255, 1) 0%, rgba(46, 218, 233, 1) 100%);
